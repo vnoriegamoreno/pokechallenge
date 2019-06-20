@@ -2,6 +2,13 @@
 import { connect } from 'react-redux';
 import PokedexComponent from './pokedex.component';
 import { loadPokemonListAction } from '../state/actions/load-pokemon-list.action';
+import { pokemonListSelector } from '../state/pokedex.selectors';
+
+const mapStateToProps = (state) => {
+  return {
+    pokemonList: pokemonListSelector(state),
+  }
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -10,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Pokedex = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(PokedexComponent);
 
