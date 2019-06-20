@@ -1,7 +1,14 @@
 // @flow
 import React, { Component } from 'react';
 
-class PokedexComponent extends Component {
+type Props = {
+  loadPokemonList: () => void,
+};
+
+class PokedexComponent extends Component<Props> {
+  componentDidMount() {
+    this.props.loadPokemonList();
+  }
   render() {
     return (
       <div>Pokedex</div>
