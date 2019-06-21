@@ -26,6 +26,16 @@ export const pokedexReducer = (state: InitialState = initialState, action: Objec
         pokemonList: action.payload,
       };
     case `LOAD_ADDITIONAL_POKEMON_INFO_ACTION/${pokedexSliceReducer}`:
+      const alreadyExistPokemon = state.pokemonAdditionalInfo.find((pokemon) => 
+        pokemon.name === action.payload.name);
+      if (alreadyExistPokemon) {
+        return {
+          ...state,
+          pokemonAdditionalInfo: [
+            ...state.pokemonAdditionalInfo,
+          ],
+        }  
+      }
       return {
         ...state,
         pokemonAdditionalInfo: [
@@ -33,6 +43,11 @@ export const pokedexReducer = (state: InitialState = initialState, action: Objec
           action.payload,
         ],
       }
+    case `LOAD_POKEMON_LIST_PAGINATION_ACTION/${pokedexSliceReducer}`:
+      return {
+        ...state,
+        pokemonList: action.payload,
+      };
     default:
       return state;
   }

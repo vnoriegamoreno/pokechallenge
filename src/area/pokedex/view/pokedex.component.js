@@ -2,12 +2,14 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PokemonCard from 'shared/components/pokemon-card/pokemon-card.component';
+import Pagination from 'shared/components/pagination/pagination.component';
 import type { PokemonList } from '../state/pokedex.type';
 
 type Props = {
   pokemonList: PokemonList,
   additionalPokemonInfo: Array<Object>,
   loadPokemonList: () => void,
+  loadPokemonListPagination: (pageApiUrl: string) => void,
 };
 
 class PokedexComponent extends Component<Props> {
@@ -18,6 +20,7 @@ class PokedexComponent extends Component<Props> {
     const { 
       pokemonList,
       additionalPokemonInfo,
+      loadPokemonListPagination
     } = this.props;
     const renderPokemon = additionalPokemonInfo && additionalPokemonInfo.length > 0 
             && pokemonList.results;
@@ -35,6 +38,11 @@ class PokedexComponent extends Component<Props> {
               );
           })}
         </Grid>
+        <Pagination 
+          loadPokemonListPagination={loadPokemonListPagination}
+          nextPage={pokemonList.next}
+          prevPage={pokemonList.previous}
+        />
       </div>
     );
   }

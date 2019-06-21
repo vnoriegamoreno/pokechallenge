@@ -40,7 +40,7 @@ class PokemonGameIndicesComp extends React.Component<Props,State> {
           onClick={() => this.handleOnClick()}
           className={classes.showMore}
         >
-          {expanded ? 'Less moves' : 'All moves'}
+          {expanded ? 'Less game indices' : 'All game indces'}
         </div>
       </div>
     );
