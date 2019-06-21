@@ -6,6 +6,7 @@ import type { PokemonList } from '../state/pokedex.type';
 type Props = {
   pokemonList: PokemonList,
   loadPokemonList: () => void,
+  loadPokemonListPagination: () => void,
 };
 
 class PokedexComponent extends Component<Props> {

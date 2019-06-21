@@ -7,3 +7,8 @@ export const pokemonListSelector = createSelector(
   pokedexSliceSelector,
   (state) => state && state.pokemonList
 );
+
+export const additionalPokemonInfoSelector = createSelector(
+  pokedexSliceSelector,
+  (state) => state && state.pokemonAdditionalInfo
+);

@@ -25,6 +25,14 @@ export const pokedexReducer = (state: InitialState = initialState, action: Objec
         ...state,
         pokemonList: action.payload,
       };
+    case `LOAD_ADDITIONAL_POKEMON_INFO_ACTION/${pokedexSliceReducer}`:
+      return {
+        ...state,
+        pokemonAdditionalInfo: [
+          ...state.pokemonAdditionalInfo,
+          action.payload,
+        ],
+      }
     default:
       return state;
   }
