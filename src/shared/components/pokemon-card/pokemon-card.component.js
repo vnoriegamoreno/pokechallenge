@@ -4,10 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PokedexData from 'shared/components/pokedex-data/pokedex-data.component';
 import { PokemonType } from 'shared/components/pokemon-type/pokemon-type.component';
 import { withStyles } from '@material-ui/styles';
 
@@ -65,6 +67,11 @@ class PokemonCardComp extends React.Component<Props, State> {
           }
           subheader={<PokemonType pokemonType={types} variant="column" title="Type: " />}
         />
+        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <div>
+            <PokedexData additionalPokemonInfo={additionalPokemonInfo} />
+          </div>
+        </Collapse>
       </Card>
     );
   }
