@@ -32,16 +32,21 @@ class TopBarComp extends React.Component<Props, State> {
         <AppBar className={classes.topBarStyles} position="static">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              PokeChallenge
+              Pokedex
             </Typography>
-            <Button color="inherit">
+            <Button color="inherit" className={classes.hover}>
               <Link className={classes.button} to="/">
-                Pokedex
+                List
               </Link>
             </Button>
-            <Button color="inherit">
-              <Link className={classes.button} to="/requirements">
-                Challenge Req.
+            <Button color="inherit" className={classes.hover}>
+              <Link className={classes.button} to="/capture-pokemons">
+                Capture
+              </Link>
+            </Button>
+            <Button color="inherit" className={classes.hover}>
+              <Link className={classes.button} to="/my-pokemons">
+                My Pokemons
               </Link>
             </Button>
           </Toolbar>
@@ -60,15 +65,21 @@ const styles = ({
   },
   title: {
     flexGrow: 1,
+    color: '#000',
   },
   topBarStyles: {
-    background: '#ef5350',
+    background: '#ee1515',
     marginBottom: 15,
   },
   button: {
-    color: '#fff',
+    color: '#000',
     textDecoration: 'none',
   },
+  hover: {
+    '&:hover': {
+      background: '#fff',
+    }
+  }
 });
 
 const TopBar = withStyles(styles)(
